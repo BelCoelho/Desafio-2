@@ -1,16 +1,73 @@
 ﻿using System.Text;
 using DesafioProjetoHospedagem.Models;
+using Microsoft.VisualBasic;
 
 Console.OutputEncoding = Encoding.UTF8;
 
 // Cria os modelos de hóspedes e cadastra na lista de hóspedes
-List<Pessoa> hospedes = new List<Pessoa>();
+Suite suite = new Suite();
 
-Pessoa p1 = new Pessoa(nome: "Hóspede 1");
-Pessoa p2 = new Pessoa(nome: "Hóspede 2");
+List<string> hospedes = new List<string>();
 
-hospedes.Add(p1);
-hospedes.Add(p2);
+Pessoa p = new Pessoa();
+
+
+
+
+string opcao = string.Empty;
+bool exibirMenu = true;
+
+while (exibirMenu)
+{
+    Console.Clear();
+    Console.WriteLine("Digite a sua opção:");
+    Console.WriteLine("1 - Registrar Hóspede");
+    Console.WriteLine("2 - Reservar Suíte");
+    Console.WriteLine("3 - Lista de Hóspedes");
+    Console.WriteLine("5 - Encerrar");
+
+    switch (Console.ReadLine())
+    {
+        case "1":
+            Console.WriteLine("Nome do hospede: ");
+            string nome = Console.ReadLine();
+            hospedes.Add(nome);
+            break;
+
+        case "2":
+            Console.WriteLine("Reservar Suíte");
+
+            
+          
+
+            break;
+
+
+        case "3":
+            Console.WriteLine("Lista de Hóspedes");
+            for (int contador = 0;contador < hospedes.Count; contador++)
+            {
+                Console.WriteLine($"Posição N° {contador + 1}° - {hospedes[contador]}");
+            }
+            break;
+
+        case "5":
+            Console.WriteLine("Encerrando");
+            exibirMenu = false;
+            break;
+
+    }
+
+    Console.WriteLine("\nPressione uma tecla para continuar");
+    Console.ReadLine();
+}
+
+Console.WriteLine("\nO programa se encerrou");
+
+
+
+
+/*
 
 // Cria a suíte
 Suite suite = new Suite(tipoSuite: "Premium", capacidade: 2, valorDiaria: 30);
@@ -22,4 +79,4 @@ reserva.CadastrarHospedes(hospedes);
 
 // Exibe a quantidade de hóspedes e o valor da diária
 Console.WriteLine($"Hóspedes: {reserva.ObterQuantidadeHospedes()}");
-Console.WriteLine($"Valor diária: {reserva.CalcularValorDiaria()}");
+Console.WriteLine($"Valor diária: {reserva.CalcularValorDiaria()}");*/
