@@ -6,61 +6,40 @@ Console.OutputEncoding = Encoding.UTF8;
 
 // Cria os modelos de hóspedes e cadastra na lista de hóspedes
 Suite suite = new Suite();
-
 List<string> hospedes = new List<string>();
+Reserva reserva= new Reserva();
 
-Pessoa p = new Pessoa();
+//Cadastra a suite
+reserva.CadastrarSuite();
+
+//Console.Clear();
 
 
+//Cadastra os hospedes
+string s = "s";
 
-
-string opcao = string.Empty;
-bool exibirMenu = true;
-
-while (exibirMenu)
+while (s == "s")
 {
-    Console.Clear();
-    Console.WriteLine("Digite a sua opção:");
-    Console.WriteLine("1 - Registrar Hóspede");
-    Console.WriteLine("2 - Reservar Suíte");
-    Console.WriteLine("3 - Lista de Hóspedes");
-    Console.WriteLine("5 - Encerrar");
+Console.WriteLine("\nAdicionar Hospede");
 
-    switch (Console.ReadLine())
-    {
-        case "1":
-            Console.WriteLine("Nome do hospede: ");
-            string nome = Console.ReadLine();
-            hospedes.Add(nome);
-            break;
+reserva.CadastrarHospedes();
 
-        case "2":
-            Console.WriteLine("Reservar Suíte");
-
-            
-          
-
-            break;
-
-
-        case "3":
-            Console.WriteLine("Lista de Hóspedes");
-            for (int contador = 0;contador < hospedes.Count; contador++)
-            {
-                Console.WriteLine($"Posição N° {contador + 1}° - {hospedes[contador]}");
-            }
-            break;
-
-        case "5":
-            Console.WriteLine("Encerrando");
-            exibirMenu = false;
-            break;
-
-    }
-
-    Console.WriteLine("\nPressione uma tecla para continuar");
-    Console.ReadLine();
+Console.WriteLine("Adicionar outro hóspede? Precione 's' se SIM e 'n' para NÃO");
+s = Console.ReadLine();
 }
+
+//Pergunta a quantidade de dias reservados e traz o valor da hospedagem
+
+decimal diasReservados;
+Console.WriteLine("Quantos dias de reserva: ");
+diasReservados = Convert.ToDecimal(Console.ReadLine());
+            
+decimal valor = 0;
+valor = diasReservados * suite.ValorDiaria;
+Console.WriteLine($"{diasReservados} x {suite.ValorDiaria}");
+
+Console.WriteLine($"O valor da diária é: {valor}");
+
 
 Console.WriteLine("\nO programa se encerrou");
 
